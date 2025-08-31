@@ -1,0 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/31 13:13:24 by jmutschl          #+#    #+#             */
+/*   Updated: 2025/08/31 20:37:04 by jmutschl         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
+#ifndef CAT_HPP
+#define CAT_HPP
+
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
+{
+	private:
+		Brain*	_brain;
+	public:
+		Cat();
+		Cat(const Cat& src);
+		Cat& operator=(const Cat& src);
+		virtual ~Cat();
+
+		virtual void	makeSound() const;
+};
+
+#endif
