@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 13:13:45 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/08/31 20:49:01 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 06:34:22 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,29 @@ int main()
         delete zoo[i];
     }
 
-    // Deep copy check
+    std::cout << "Deep copy check:\n";
     Dog a;
-    Dog b = a;  // copy constructor
+    a.setIdea(0, "chase a stick");
+    std::cout << "Dog A: Idea 0 = " << a.getIdea(0) << "\n";
+    
+    std::cout << "\nCopy constructore check\n";
+    Dog b(a);
+    std::cout << "Dog A: Idea 0 = " << a.getIdea(0) << "\n";
+    std::cout << "Dog B: Idea 0 = " << b.getIdea(0) << "\n";
+    std::cout << "now we change the idea of dog b as they both have there own brain it should only change b\n";
+    b.setIdea(0, "chase my own tail");
+    std::cout << "Dog A: Idea 0 = " << a.getIdea(0) << "\n";
+    std::cout << "Dog B: Idea 0 = " << b.getIdea(0) << "\n";
+    
+    std::cout << "\nAssignment operator check\n";
     Dog c;
-    c = a;      // assignment operator
+    c = a;
+    std::cout << "Dog A: Idea 0 = " << a.getIdea(0) << "\n";
+    std::cout << "Dog C: Idea 0 = " << c.getIdea(0) << "\n";
+    std::cout << "\nnow we change the idea of dog c as they both have there own brain it should only change c\n";
+    c.setIdea(0, "chase my own tail");
+    std::cout << "Dog A: Idea 0 = " << a.getIdea(0) << "\n";
+    std::cout << "Dog C: Idea 0 = " << c.getIdea(0) << "\n\n";
 
     return 0;
 }

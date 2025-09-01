@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 13:13:42 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/08/31 20:45:58 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 06:20:59 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,17 @@ Dog::~Dog()
 void	Dog::makeSound() const
 {
     std::cout << "Woof! Woof!\n";
+}
+
+void    Dog::setIdea(int index, const std::string& idea)
+{
+    if (index >= 0 && index < 100)
+        _brain->setIdea(index, idea);
+}
+
+std::string Dog::getIdea(int index) const
+{
+    if (index >= 0 && index < 100)
+        return (_brain->getIdea(index));
+    return ("");
 }

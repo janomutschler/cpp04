@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 13:13:39 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/08/31 20:47:11 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 06:21:27 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,17 @@ Cat::~Cat()
 void	Cat::makeSound() const
 {
     std::cout << "Miao! Miao!\n";
+}
+
+void    Cat::setIdea(int index, const std::string& idea)
+{
+    if (index >= 0 && index < 100)
+        _brain->setIdea(index, idea);
+}
+
+std::string Cat::getIdea(int index) const
+{
+    if (index >= 0 && index < 100)
+        return (_brain->getIdea(index));
+    return ("");
 }
