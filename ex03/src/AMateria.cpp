@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 07:46:23 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/09/01 07:52:24 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 10:13:37 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,3 +28,4 @@ AMateria& AMateria::operator=(const AMateria& src)
 AMateria::~AMateria() {}
 
 std::string const& AMateria::getType() const { return (_type); }
+void    AMateria::use(ICharacter& target) { (void)target; }

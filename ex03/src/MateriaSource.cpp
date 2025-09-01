@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 07:46:42 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/09/01 08:03:44 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:11:17 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,17 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& src)
     return (*this);
 }
 
-MateriaSource::~MateriaSource() { _clearLearned(); }
+MateriaSource::~MateriaSource() { _clearLearned();}
 
 void MateriaSource::_clearLearned()
 {
     for (int i = 0; i < 4; i++)
 	{
-        delete _learned[i];
-        _learned[i] = NULL;
+        if (_learned[i])
+        {
+            delete _learned[i];
+            _learned[i] = NULL;
+        }
     }
 }
 
@@ -55,4 +58,38 @@ void MateriaSource::_copyLearned(const MateriaSource& src)
         else
             _learned[i] = NULL;
     }
+}
+
+void    MateriaSource::learnMateria(AMateria* m)
+{
+    if (!m)
+        return;
+    for (int i = 0; i < 4; ++i)
+    {
+        if (_learned[i] == NULL)
+        {
+            _learned[i] = m->clone();
+            delete m;
+            std::cout << "MateriaSource: learned " << _learned[i]->getType()
+                      << " in slot " << i << "\n";
+            return ;
+        }
+    }
+    std::cout   << "MateriaSource: memory full, cannot learn "
+                << m->getType() << "\n";
+    delete m;
+}
+
+AMateria*   MateriaSource::createMateria(std::string const& type)
+{
+    for (int i = 0; i < 4; ++i)
+    {
+        if (_learned[i] && _learned[i]->getType() == type)
+        {
+            std::cout << "MateriaSource: creating a new " << type << "\n";
+            return (_learned[i]->clone());
+        }
+    }
+    std::cout << "MateriaSource: unknown type '" << type << "'\n";
+    return (0);
 }
