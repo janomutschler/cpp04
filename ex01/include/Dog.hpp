@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 13:13:27 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/08/31 20:37:07 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 06:18:16 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Dog : public Animal
 		virtual ~Dog();
 
 		virtual void	makeSound() const;
+
+		void			setIdea(int index, const std::string& idea);
+		std::string		getIdea(int index) const;
 };
 
 #endif
