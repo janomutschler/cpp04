@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 07:36:46 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/09/01 07:39:23 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 11:59:26 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,33 +20,31 @@
 class AMateria;
 
 #define INVENTORY_SIZE 4
-#define GROUND_SIZE    16
+#define FLOOR_SIZE    16
 
 class Character : public ICharacter
 {
   private:
     std::string _name;
     AMateria*   _inv[INVENTORY_SIZE];
-    AMateria*   _ground[GROUND_SIZE];
-    int         _groundTop;
+    AMateria*   _floor[FLOOR_SIZE];
+    int         _floorIdx;
 
-    // helper to clear inventory
     void _clearInventory();
-    // helper to deep-copy from another
-    void _copyInventory(const Character& other);
+    void _copyInventory(const Character& src);
 
   public:
     Character();
-    Character(const Character& other);
-    Character& operator=(const Character& other);
+    Character(const Character& src);
+    Character& operator=(const Character& src);
     virtual ~Character();
 
     Character(std::string const& name);
 
-    virtual void				equip(AMateria* m);
-    virtual void				unequip(int idx);
-    virtual void				use(int idx, ICharacter& target);
-    virtual std::string const&	getName() const;
+    virtual void                equip(AMateria* m);
+    virtual void                unequip(int idx);
+    virtual void                use(int idx, ICharacter& target);
+    virtual std::string const&  getName() const;
 };
 
 #endif

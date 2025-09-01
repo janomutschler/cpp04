@@ -2,7 +2,7 @@ NAME		:=	ex03
 CXX			:=	c++
 CXXFLAGS	:=	-Wall -Wextra -Werror -Iinclude -std=c++98
 
-SRCS		:=	src/main\
+SRCS		:=	src/main.cpp\
 				src/AMateria.cpp\
 				src/ICharacter.cpp\
 				src/IMateriaSource.cpp\

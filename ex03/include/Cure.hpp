@@ -6,7 +6,7 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 07:34:46 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/09/01 07:35:37 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 10:23:59 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
     Cure& operator=(const Cure& src);
     virtual ~Cure();
 
-    virtual void		use(ICharacter& target);
+    virtual void      use(ICharacter& target);
     virtual AMateria*	clone() const;
 };
 
