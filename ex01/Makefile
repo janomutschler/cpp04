@@ -6,9 +6,7 @@ SRCS		:=	src/main.cpp\
 				src/Animal.cpp\
 				src/Dog.cpp\
 				src/Cat.cpp\
-				src/Brain.cpp\
-				wrong/WrongAnimal.cpp\
-				wrong/WrongCat.cpp
+				src/Brain.cpp
 OBJ_DIR		:=	obj
 OBJS		=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 

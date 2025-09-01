@@ -6,15 +6,13 @@
 /*   By: jmutschl <jmutschl@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/31 13:13:45 by jmutschl          #+#    #+#             */
-/*   Updated: 2025/09/01 06:34:22 by jmutschl         ###   ########.fr       */
+/*   Updated: 2025/09/01 06:43:48 by jmutschl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "Brain.hpp"
 #include <iostream>
 
